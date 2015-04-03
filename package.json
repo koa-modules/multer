@@ -1,0 +1,39 @@
+{
+  "name": "koa-multer",
+  "version": "0.0.1",
+  "description": "Middleware for handling `multipart/form-data` for koa.",
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT",
+  "repository": "koa-modules/multer",
+  "keywords": [
+    "form",
+    "post",
+    "multipart",
+    "form-data",
+    "formdata",
+    "koa",
+    "middleware"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "co": "^4.5.1",
+    "koa": "^0.18.1",
+    "koa-router": "^4.3.1",
+    "mkdirp": "^0.5.0",
+    "mocha": "^2.2.1",
+    "rimraf": "^2.3.2",
+    "supertest": "^0.15.0"
+  },
+  "dependencies": {
+    "multer": "^0.1.8",
+    "thenify": "^3.1.0"
+  },
+  "files": [
+    "LICENSE",
+    "index.js"
+  ]
+}
