@@ -36,6 +36,10 @@ app.listen(3000);
 
 > Just **multer** wrapper, returns a GeneratorFunction.
 
+## License
+
+  [MIT](LICENSE)
+
 [npm-img]: https://img.shields.io/npm/v/koa-multer.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa-multer
 [travis-img]: https://img.shields.io/travis/koa-modules/multer.svg?style=flat-square
@@ -46,4 +50,4 @@ app.listen(3000);
 [license-url]: LICENSE
 [david-img]: https://img.shields.io/david/koa-modules/multer.svg?style=flat-square
 [david-url]: https://david-dm.org/koa-modules/multer
-[serve-index]: https://github.com/expressjs/multer
+[multer]: https://github.com/expressjs/multer
