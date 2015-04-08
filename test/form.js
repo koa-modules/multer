@@ -418,3 +418,11 @@ describe('Files', function () {
     })
 
 });
+
+describe('multer', function() {
+  it('should be a GeneratorFunction', function () {
+    expect(typeof multer()).to.equal('function');
+    expect(multer().constructor.name).to.equal('GeneratorFunction');
+  });
+
+});
