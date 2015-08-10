@@ -21,18 +21,18 @@
     "test-cov": "node_modules/.bin/isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
+    "chai": "^3.2.0",
     "co": "^4.5.1",
     "isparta": "^3.0.3",
-    "koa": "^0.18.1",
-    "koa-router": "^4.3.1",
+    "koa": "^0.21.0",
+    "koa-router": "^5.1.2",
     "mkdirp": "^0.5.0",
     "mocha": "^2.2.1",
     "rimraf": "^2.3.2",
-    "supertest": "^0.15.0"
+    "supertest": "^1.0.1"
   },
   "dependencies": {
-    "multer": "^0.1.8",
+    "multer": "^1.0.3",
     "thenify": "^3.1.0"
   },
   "files": [
