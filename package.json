@@ -32,7 +32,7 @@
     "supertest": "^1.0.1"
   },
   "dependencies": {
-    "multer": "^1.0.3",
+    "multer": "^0.x",
     "thenify": "^3.1.0"
   },
   "files": [
