@@ -42,7 +42,7 @@ app.listen(3000);
 
 [npm-img]: https://img.shields.io/npm/v/koa-multer.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa-multer
-[travis-img]: https://img.shields.io/travis/koa-modules/multer.svg?style=flat-square
+[travis-img]: https://travis-ci.org/koa-modules/multer.svg?style=flat-square
 [travis-url]: https://travis-ci.org/koa-modules/multer
 [coveralls-img]: https://img.shields.io/coveralls/koa-modules/multer.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/koa-modules/multer?branch=master
