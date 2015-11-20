@@ -25,6 +25,7 @@ module.exports = function multerWrapper(options) {
 
   function* multer(next) {
     yield middleware(this.req, this.res);
+    this.request.body = this.req.body;
     yield next;
   }
 }
