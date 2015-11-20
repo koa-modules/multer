@@ -17,21 +17,20 @@ function multer(options) {
   const m = originalMulter(options)
 
   const _makeMiddleware = m._makeMiddleware.bind(m)
-  m._makeMiddleware = makeHandler(_makeMiddleware)
+  m._makeMiddleware = makePromise(_makeMiddleware)
 
   const any = m.any.bind(m)
-  m.any = makeHandler(any)
+  m.any = makePromise(any)
 
   return m
 }
 
-function makeHandler(fn) {
+function makePromise(fn) {
   return (fields, fileStrategy) => {
     return (ctx, next) => {
-      const handler = fn(fields, fileStrategy)
       return new Promise((resolve, reject) => {
-        handler(ctx.req, ctx.res, (err) => {
-          return err ? reject(err) : resolve()
+        fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
+          err ? reject(err) : resolve()
         })
       }).then(() => next())
     }
