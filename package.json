@@ -17,13 +17,13 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec --bail --check-leaks",
-    "test-ci": "node_modules/.bin/isparta cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/*.js",
-    "test-cov": "node_modules/.bin/isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
+    "test-ci": "isparta cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/*.js",
+    "test-cov": "isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
   },
   "devDependencies": {
     "chai": "^3.2.0",
     "co": "^4.5.1",
-    "isparta": "^3.0.3",
+    "isparta": "^4.0.0",
     "koa": "^0.21.0",
     "koa-router": "^5.1.2",
     "mkdirp": "^0.5.0",
