@@ -1,3 +1,5 @@
+'use strict'
+
 /*!
  * multer
  * Copyright(c) 2014 Hage Yaapa
@@ -9,23 +11,33 @@
  * Module dependencies.
  */
 
-var thenify = require('thenify');
-var originalMulter = require('multer');
+const originalMulter = require('multer')
 
-/**
- * @param {Object} options
- * @return {GeneratorFunction}
- * @api public
- */
+function multer(options) {
+  const m = originalMulter(options)
 
-module.exports = function multerWrapper(options) {
-  var middleware = thenify(originalMulter(options));
+  const _makeMiddleware = m._makeMiddleware.bind(m)
+  m._makeMiddleware = makePromise(_makeMiddleware)
 
-  return multer;
+  const any = m.any.bind(m)
+  m.any = makePromise(any)
 
-  function* multer(next) {
-    yield middleware(this.req, this.res);
-    this.request.body = this.req.body;
-    yield next;
+  return m
+}
+
+function makePromise(fn) {
+  return (fields, fileStrategy) => {
+    return (ctx, next) => {
+      return new Promise((resolve, reject) => {
+        fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
+          err ? reject(err) : resolve()
+        })
+      }).then(next)
+    }
   }
 }
+
+multer.diskStorage = originalMulter.diskStorage
+multer.memoryStorage = originalMulter.memoryStorage
+
+module.exports = multer

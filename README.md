@@ -9,6 +9,7 @@
 [![License][license-img]][license-url]
 [![Dependency status][david-img]][david-url]
 
+
 ## Install
 
 ```sh
@@ -17,7 +18,22 @@ $ npm install --save koa-multer
 
 ## Usage
 
-Adding this into your koa server file:
+### **=1.x**, **100%**, working with [multer-v1.x](https://github.com/expressjs/multer) and [koa-v2.x](https://github.com/koajs/koa).
+
+```js
+const Koa = require('koa');
+const route = require('koa-route')
+const multer = require('koa-multer');
+
+const app = new Koa();
+const upload = multer({ dest: 'uploads/' })
+
+app.use(route.post('/profile', upload.single('avatar')))
+
+app.listen(3000);
+```
+
+### **<1.x**
 
 ```js
 var koa = require('koa');
@@ -30,15 +46,11 @@ app.use(multer({ dest: './uploads/'}))
 app.listen(3000);
 ```
 
-## API
-
-* **multer**
-
-> Just **multer** wrapper, returns a GeneratorFunction.
 
 ## License
 
   [MIT](LICENSE)
+
 
 [npm-img]: https://img.shields.io/npm/v/koa-multer.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa-multer
