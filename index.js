@@ -32,7 +32,7 @@ function makePromise(fn) {
         fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
           err ? reject(err) : resolve()
         })
-      }).then(() => next())
+      }).then(next)
     }
   }
 }
