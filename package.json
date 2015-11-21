@@ -1,6 +1,6 @@
 {
   "name": "koa-multer",
-  "version": "0.0.2",
+  "version": "1.0.0-alpha.1",
   "description": "Middleware for handling `multipart/form-data` for koa.",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
