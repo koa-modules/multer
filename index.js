@@ -30,7 +30,7 @@ function makePromise(fn) {
     return (ctx, next) => {
       return new Promise((resolve, reject) => {
         fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
-          err ? reject(err) : resolve()
+          err ? reject(err) : resolve(ctx)
         })
       }).then(next)
     }
