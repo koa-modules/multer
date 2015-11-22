@@ -21,15 +21,15 @@
     "test-cov": "isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
   },
   "devDependencies": {
-    "form-data": "^0.2.0",
-    "fs-temp": "^1.0.0",
-    "isparta": "^4.0.0",
+    "form-data": "^0.x",
+    "fs-temp": "^1.x",
+    "isparta": "^4.x",
     "koa": "^2.0.0-alpha.3",
     "koa-router": "github:jbielick/koa-router#koa2.x",
-    "mocha": "^2.2.1",
-    "on-finished": "^2.3.0",
-    "rimraf": "^2.4.4",
-    "testdata-w3c-json-form": "^0.2.0"
+    "mocha": "^2.x",
+    "on-finished": "^2.x",
+    "rimraf": "^2.x",
+    "testdata-w3c-json-form": "^0.x"
   },
   "dependencies": {
     "multer": "^1.1.0"
