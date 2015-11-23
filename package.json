@@ -21,6 +21,7 @@
     "test-cov": "isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
   },
   "devDependencies": {
+    "concat-stream": "^1.x",
     "form-data": "^0.x",
     "fs-temp": "^1.x",
     "isparta": "^4.x",
