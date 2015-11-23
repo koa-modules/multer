@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - "node"
+  - "4"
+  - "5"
 sudo: false
 script: "npm run test-ci"
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
