@@ -1,6 +1,6 @@
 {
   "name": "koa-multer",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Middleware for handling `multipart/form-data` for koa.",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "fs-temp": "^1.x",
     "isparta": "^4.x",
     "koa": "^2.0.0-alpha.3",
-    "koa-router": "github:jbielick/koa-router#koa2.x",
+    "koa-router": "^6.x",
     "mocha": "^2.x",
     "on-finished": "^2.x",
     "rimraf": "^2.x",
@@ -36,10 +36,12 @@
     "multer": "^1.1.0"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 4"
   },
   "files": [
+    "History.md",
     "LICENSE",
+    "README.md",
     "index.js"
   ]
 }
