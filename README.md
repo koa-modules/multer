@@ -23,13 +23,13 @@ $ npm install --save koa-multer
 
 ```js
 const Koa = require('koa');
-const route = require('koa-route')
+const route = require('koa-route');
 const multer = require('koa-multer');
 
 const app = new Koa();
-const upload = multer({ dest: 'uploads/' })
+const upload = multer({ dest: 'uploads/' });
 
-app.use(route.post('/profile', upload.single('avatar')))
+app.use(route.post('/profile', upload.single('avatar')));
 
 app.listen(3000);
 ```
@@ -42,7 +42,7 @@ var multer = require('koa-multer');
 
 var app = koa();
 
-app.use(multer({ dest: './uploads/'}))
+app.use(multer({ dest: './uploads/'}));
 
 app.listen(3000);
 ```
