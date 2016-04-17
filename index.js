@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*!
  * multer
@@ -10,34 +10,55 @@
 /**
  * Module dependencies.
  */
-
-const originalMulter = require('multer')
+const multerFields = ['file', 'files', 'body'];
+const originalMulter = require('multer');
 
 function multer(options) {
-  const m = originalMulter(options)
+  const m = originalMulter(options);
 
-  const _makeMiddleware = m._makeMiddleware.bind(m)
-  m._makeMiddleware = makePromise(_makeMiddleware)
+  const _makeMiddleware = m._makeMiddleware.bind(m);
+  m._makeMiddleware = makePromise(_makeMiddleware);
 
-  const any = m.any.bind(m)
-  m.any = makePromise(any)
+  const any = m.any.bind(m);
+  m.any = makePromise(any);
 
   return m
 }
 
 function makePromise(fn) {
   return (fields, fileStrategy) => {
-    return (ctx, next) => {
+    return function *(next) {
+      yield promise(this);
+      yield next;
+    };
+    function promise(ctx) {
       return new Promise((resolve, reject) => {
         fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
-          err ? reject(err) : resolve(ctx)
+          if (err) {
+            reject(err)
+          } else {
+            copyFields(ctx);
+            resolve(ctx)
+          }
         })
-      }).then(next)
+      });
     }
   }
 }
 
-multer.diskStorage = originalMulter.diskStorage
-multer.memoryStorage = originalMulter.memoryStorage
+function copyFields(ctx) {
+  let req = ctx.req;
+  let len = multerFields.length;
+  let field;
+  for (let i = 0; i < len; i ++) {
+    field = multerFields[i];
+    if (req.hasOwnProperty(field)) {
+      ctx[field] = req[field];
+    }
+  }
+}
 
-module.exports = multer
+multer.diskStorage = originalMulter.diskStorage;
+multer.memoryStorage = originalMulter.memoryStorage;
+
+exports = module.exports = multer;
