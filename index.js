@@ -28,12 +28,14 @@ function multer(options) {
 function makePromise(multer, name) {
   if (!multer[name]) return
 
-  const fn = multer[name].bind(multer)
+  const fn = multer[name]
 
-  multer[name] = (...args) => {
+  multer[name] = function () {
+    const args = arguments
+
     return (ctx, next) => {
       return new Promise((resolve, reject) => {
-        fn(...args)(ctx.req, ctx.res, (err) => {
+        fn.apply(multer, args)(ctx.req, ctx.res, (err) => {
           err ? reject(err) : resolve(ctx)
         })
       }).then(next)
