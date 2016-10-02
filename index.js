@@ -31,11 +31,11 @@ function makePromise(multer, name) {
   const fn = multer[name]
 
   multer[name] = function () {
-    const args = arguments
+    const middleware = fn.apply(this, arguments)
 
     return (ctx, next) => {
       return new Promise((resolve, reject) => {
-        fn.apply(multer, args)(ctx.req, ctx.res, (err) => {
+        middleware(ctx.req, ctx.res, (err) => {
           err ? reject(err) : resolve(ctx)
         })
       }).then(next)
