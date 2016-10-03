@@ -16,20 +16,26 @@ const originalMulter = require('multer')
 function multer(options) {
   const m = originalMulter(options)
 
-  const _makeMiddleware = m._makeMiddleware.bind(m)
-  m._makeMiddleware = makePromise(_makeMiddleware)
-
-  const any = m.any.bind(m)
-  m.any = makePromise(any)
+  makePromise(m, 'any')
+  makePromise(m, 'array')
+  makePromise(m, 'fields')
+  makePromise(m, 'none')
+  makePromise(m, 'single')
 
   return m
 }
 
-function makePromise(fn) {
-  return (fields, fileStrategy) => {
+function makePromise(multer, name) {
+  if (!multer[name]) return
+
+  const fn = multer[name]
+
+  multer[name] = function () {
+    const middleware = fn.apply(this, arguments)
+
     return (ctx, next) => {
       return new Promise((resolve, reject) => {
-        fn(fields, fileStrategy)(ctx.req, ctx.res, (err) => {
+        middleware(ctx.req, ctx.res, (err) => {
           err ? reject(err) : resolve(ctx)
         })
       }).then(next)
