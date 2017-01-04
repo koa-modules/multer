@@ -1,6 +1,6 @@
 {
   "name": "koa-multer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Middleware for handling `multipart/form-data` for koa.",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
@@ -21,19 +21,19 @@
     "test-cov": "isparta cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/*.js"
   },
   "devDependencies": {
-    "concat-stream": "^1.x",
-    "form-data": "^0.x",
-    "fs-temp": "^1.x",
-    "isparta": "^4.x",
-    "koa": "^2.0.0-alpha.3",
-    "koa-router": "^6.x",
-    "mocha": "^2.x",
-    "on-finished": "^2.x",
-    "rimraf": "^2.x",
-    "testdata-w3c-json-form": "^0.x"
+    "concat-stream": "^1",
+    "form-data": "^2",
+    "fs-temp": "^1",
+    "isparta": "^4",
+    "koa": "^2",
+    "koa-router": "^7",
+    "mocha": "^3",
+    "on-finished": "^2",
+    "rimraf": "^2",
+    "testdata-w3c-json-form": "^0"
   },
   "dependencies": {
-    "multer": "^1.1.0"
+    "multer": "1.2.1"
   },
   "engines": {
     "node": ">= 4"
