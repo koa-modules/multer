@@ -36,9 +36,11 @@ function makePromise(multer, name) {
     return (ctx, next) => {
       return new Promise((resolve, reject) => {
         middleware(ctx.req, ctx.res, (err) => {
-          if (ctx.req.body) ctx.request.body = ctx.req.body;
-          if (ctx.req.file) ctx.request.file = ctx.req.file;
-          if (ctx.req.files) ctx.request.files = ctx.req.files;
+          if ('request' in ctx){
+            if (ctx.req.body) ctx.request.body = ctx.req.body;
+            if (ctx.req.file) ctx.request.file = ctx.req.file;
+            if (ctx.req.files) ctx.request.files = ctx.req.files;
+          }
           err ? reject(err) : resolve(ctx);
         });
       }).then(next);
