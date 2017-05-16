@@ -39,7 +39,10 @@ function makePromise(multer, name) {
           if ('request' in ctx){
             if (ctx.req.body) ctx.request.body = ctx.req.body;
             if (ctx.req.file) ctx.request.file = ctx.req.file;
-            if (ctx.req.files) ctx.request.files = ctx.req.files;
+            if (ctx.req.files) {
+              ctx.request.files = ctx.req.files;
+              ctx.files = ctx.req.files;
+            }
           }
           err ? reject(err) : resolve(ctx);
         });
