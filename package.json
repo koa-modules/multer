@@ -1,6 +1,6 @@
 {
   "name": "koa-multer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Middleware for handling `multipart/form-data` for koa.",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "testdata-w3c-json-form": "^0"
   },
   "dependencies": {
-    "multer": "1.2.1"
+    "multer": "1.3.0"
   },
   "engines": {
     "node": ">= 4"
