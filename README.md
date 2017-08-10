@@ -46,7 +46,8 @@ app.use(multer({ dest: './uploads/'}));
 
 app.listen(3000);
 ```
-
+#### Notes
+- Does not work with koa-router
 
 ## License
 
