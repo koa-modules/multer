@@ -45,5 +45,6 @@ function makePromise(multer, name) {
 
 multer.diskStorage = originalMulter.diskStorage
 multer.memoryStorage = originalMulter.memoryStorage
+multer.MulterError = originalMulter.MulterError
 
 module.exports = multer
